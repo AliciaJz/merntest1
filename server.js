@@ -15,7 +15,7 @@ app.use(bodyparser.json());
 // DB CONFIG
 const db = require("./config/keys").mongoURI;
 
-// Connectar a MongoDb
+// Connect to MongoDb
 mongoose
   .connect(db)
   .then(() => console.log("MongoDB conectado"))
@@ -23,7 +23,7 @@ mongoose
 
 app.get("/", (req, res) => res.send("Zila!"));
 
-// Rutas a usar
+// Routes to use
 app.use("/api/users", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", posts);
