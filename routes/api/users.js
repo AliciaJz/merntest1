@@ -7,17 +7,17 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/User");
 
 // @route       GET api/users/test
-// @descripcion Test users route
+// @description Test users route
 // @access      Public
-router.get("/test", (req, res) => res.json({ msg: "Usuarios funciona" }));
+router.get("/test", (req, res) => res.json({ msg: "Usuarios works" }));
 
 // @route       POST api/users/register
-// @descripcion Reguster users
+// @description Register users
 // @access      Public
 router.post("/register", (req, res) => {
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email ya existe" });
+      return res.status(400).json({ email: "Email exists" });
     } else {
       const avatar = gravatar.url(req.body.email, {
         s: "200", // Size
